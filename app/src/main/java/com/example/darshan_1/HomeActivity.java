@@ -208,7 +208,13 @@ public class HomeActivity extends AppCompatActivity  {
 
 
         final AutoCompleteTextView autoCompleteTextView = findViewById(R.id.search1);
-        ArrayAdapter<String> adpater2= new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,myImageNameList2);
+        final ArrayAdapter<String> adpater2= new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,myImageNameList2);
+        autoCompleteTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                autoCompleteTextView.showDropDown();
+            }
+        });
         autoCompleteTextView.setAdapter(adpater2);
         autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

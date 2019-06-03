@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_400"
+    android:background="@color/grey_300"
     tools:context=".CabActivity">
 
 
@@ -21,7 +21,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/card_view1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -32,7 +33,7 @@
             android:layout_marginLeft="1dp"
             android:layout_marginTop="1dp"
             card_view:background="@color/blue_50"
-            card_view:cardCornerRadius="19dp"
+            card_view:cardCornerRadius="8dp"
             card_view:cardPreventCornerOverlap = "false"
             card_view:cardElevation="6dp">
 
@@ -71,7 +72,7 @@
             android:layout_marginLeft="1dp"
             android:layout_marginTop="1dp"
             card_view:background="@color/blue_50"
-            card_view:cardCornerRadius="19dp"
+            card_view:cardCornerRadius="8dp"
             card_view:cardPreventCornerOverlap = "false"
             card_view:cardElevation="6dp">
 
@@ -110,7 +111,7 @@
             android:layout_marginLeft="1dp"
             android:layout_marginTop="1dp"
             card_view:background="@color/blue_50"
-            card_view:cardCornerRadius="19dp"
+            card_view:cardCornerRadius="8dp"
             card_view:cardPreventCornerOverlap = "false"
             card_view:cardElevation="6dp">
 
@@ -145,10 +146,11 @@
             android:layout_weight="1"
             android:layout_marginBottom="1dp"
             android:layout_marginRight="1dp"
+            android:backgroundTint="@color/yellow_200"
             android:layout_marginLeft="1dp"
             android:layout_marginTop="1dp"
             card_view:background="@color/blue_50"
-            card_view:cardCornerRadius="19dp"
+            card_view:cardCornerRadius="8dp"
             card_view:cardPreventCornerOverlap = "false"
             card_view:cardElevation="6dp">
 
@@ -176,18 +178,20 @@
 
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/card_view"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+
             android:layout_weight="1"
             android:layout_marginBottom="1dp"
             android:layout_marginRight="1dp"
             android:layout_marginLeft="1dp"
             android:layout_marginTop="1dp"
             card_view:background="@color/blue_50"
-            card_view:cardCornerRadius="19dp"
+            card_view:cardCornerRadius="8dp"
             card_view:cardPreventCornerOverlap = "false"
             card_view:cardElevation="6dp">
 
@@ -217,20 +221,169 @@
 
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/edit_email"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="240dp"
-        android:background="@drawable/bubble"
-        android:elevation="40dp"
-        android:gravity="center_horizontal"
-        android:hint="   Email"
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/linaer"
+        app:layout_constraintVertical_bias="0.061" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="One Trip"
         android:textSize="20dp"
-        android:textColor="#ffffff"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/switch1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linaer" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Round Trip"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/switch1"
+        app:layout_constraintTop_toBottomOf="@+id/linaer" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch1">
+
+
+        <AutoCompleteTextView
+            android:id="@+id/search2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:background="@drawable/bubble"
+            android:backgroundTint="@color/blue_grey_100"
+            android:backgroundTintMode="add"
+            android:completionHint="1"
+            android:completionThreshold="1"
+            android:focusedByDefault="false"
+            android:hint="Where are you?"
+            android:padding="8dp" />
+
+        <AutoCompleteTextView
+            android:id="@+id/dest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:background="@drawable/bubble"
+            android:backgroundTint="@color/blue_grey_100"
+            android:backgroundTintMode="add"
+            android:completionHint="1"
+            android:completionThreshold="1"
+            android:focusableInTouchMode="true"
+            android:hint="Where you wanna go?"
+            android:padding="8dp" />
+
+        <EditText
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:background="@drawable/bubble"
+            android:backgroundTint="@color/blue_grey_100"
+            android:backgroundTintMode="add"
+            android:hint="Departure Date"
+            android:inputType="date"
+            android:padding="8dp" />
+
+        <AutoCompleteTextView
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:background="@drawable/bubble"
+            android:backgroundTint="@color/blue_grey_100"
+            android:backgroundTintMode="add"
+            android:hint="Departure Time"
+            android:inputType="time"
+            android:padding="8dp"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/date2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:background="@drawable/bubble"
+            android:backgroundTint="@color/blue_grey_100"
+            android:backgroundTintMode="add"
+            android:visibility="invisible"
+            android:hint="Return Date"
+            android:inputType="date"
+            android:padding="8dp" />
+
+        <AutoCompleteTextView
+            android:id="@+id/time2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:background="@drawable/bubble"
+            android:backgroundTint="@color/blue_grey_100"
+            android:backgroundTintMode="add"
+            android:visibility="invisible"
+            android:hint="Return Time"
+            android:inputType="time"
+            android:padding="8dp" />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bubble"
+            android:backgroundTint="@color/grey_700"
+            android:backgroundTintMode="add"
+            android:text="Submit"
+            android:onClick="submitcab"
+            android:layout_marginBottom="8dp"
+            android:padding="8dp"
+            android:layout_margin="8dp"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

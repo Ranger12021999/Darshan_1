@@ -14,7 +14,7 @@ public class LoginActivity extends AppCompatActivity {
 
     Button btn_login,btn_signup,btn_newmember;
     EditText et_email,et_password;
-    TextView tv_skip,tv_forgot,tv_remember;
+    TextView tv_skip,tv_forgot;
     CheckBox checkBox;
 
     String str_email,str_password;
@@ -29,7 +29,6 @@ public class LoginActivity extends AppCompatActivity {
         btn_newmember=findViewById(R.id.newmember);
         tv_skip=findViewById(R.id.skip);
         tv_forgot=findViewById(R.id.textview_forgot);
-        tv_remember=findViewById(R.id.remember);
         checkBox=findViewById(R.id.checkbox_remember);
         et_email=findViewById(R.id.edit_email);
         et_password=findViewById(R.id.edit_password);
@@ -44,6 +43,10 @@ public class LoginActivity extends AppCompatActivity {
                 if(str_email.equals("")|| str_password.equals(""))
                 {
                     Toast.makeText(LoginActivity.this, "Enter Email and Password First", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(LoginActivity.this, "Abhi back end nahi bna hai", Toast.LENGTH_SHORT).show();
                 }
             }
         });

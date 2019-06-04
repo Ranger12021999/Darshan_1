@@ -184,7 +184,7 @@ public class HotelActivity extends AppCompatActivity {
         checkInString = checkInDate.getText().toString();
         checkOutString = checkOutDate.getText().toString();
         reasonString = reason.getText().toString();
-        
+
         Toast.makeText(this,"Submit clicked\nHotel: " + hotelString + " CheckIn: " + checkInString
                 + " CheckOut: " + checkOutString + "Rooms: " + rooms + " Persons: " + persons,Toast.LENGTH_LONG).show();
     }

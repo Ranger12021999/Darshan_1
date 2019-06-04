@@ -16,6 +16,7 @@
         <activity android:name=".HotelActivity"></activity>
         <activity android:name=".CabActivity" />
         <activity android:name=".LoginActivity" />
+        <activity android:name=".SignInActivity"/>
         <activity
             android:name=".HelpActivity"
             android:label="@string/title_activity_help" />

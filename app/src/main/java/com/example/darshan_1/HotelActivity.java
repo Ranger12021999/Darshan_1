@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.text.InputType;
 import android.view.View;
 import android.widget.AdapterView;
@@ -37,6 +38,8 @@ public class HotelActivity extends AppCompatActivity {
     private int rooms;
     private int persons;
 
+    private CardView places,pooja,packages,cab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +52,37 @@ public class HotelActivity extends AppCompatActivity {
         checkOutDate = findViewById(R.id.checkOutdate);
         spinnerRooms = findViewById(R.id.spinnerRooms);
         spinnerPersons = findViewById(R.id.spinnerPersons);
+
+        places = findViewById(R.id.card_view1H);
+        pooja = findViewById(R.id.card_view2H);
+        packages = findViewById(R.id.card_view3H);
+        cab = findViewById(R.id.card_view4H);
+
+        places.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(HotelActivity.this,"Places",Toast.LENGTH_SHORT).show();
+            }
+        });
+        pooja.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HotelActivity.this,PoojaActivity.class);
+                startActivity(intent);
+            }
+        });
+        packages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(HotelActivity.this,"Packages",Toast.LENGTH_SHORT).show();
+            }
+        });
+        cab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HotelActivity.this,CabActivity.class);
+                startActivity(intent);            }
+        });
 
         //search for hotel/city/area
         final ArrayAdapter<String> hotelAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,myImageNameList);
@@ -187,11 +221,6 @@ public class HotelActivity extends AppCompatActivity {
 
         Toast.makeText(this,"Submit clicked\nHotel: " + hotelString + " CheckIn: " + checkInString
                 + " CheckOut: " + checkOutString + "Rooms: " + rooms + " Persons: " + persons,Toast.LENGTH_LONG).show();
-    }
-
-    public void goToCab(View view){
-        Intent intent = new Intent(HotelActivity.this,CabActivity.class);
-        startActivity(intent);
     }
 
 }

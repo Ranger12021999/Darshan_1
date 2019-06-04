@@ -182,6 +182,8 @@ public class HomeActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 Toast.makeText(HomeActivity.this, "Pooja clicked", Toast.LENGTH_SHORT).show();
+                Intent i1=new Intent(HomeActivity.this,PoojaActivity.class);
+                startActivity(i1);
             }
         });
         pack.setOnClickListener(new View.OnClickListener() {

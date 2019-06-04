@@ -64,6 +64,7 @@
             android:layout_marginTop="1dp"
             android:layout_marginRight="1dp"
             android:layout_marginBottom="1dp"
+            android:backgroundTint="@color/yellow_200"
             android:layout_weight="1"
             card_view:background="@color/blue_50"
             card_view:cardCornerRadius="19dp"
@@ -78,7 +79,7 @@
                 <ImageView
                     android:id="@+id/img2"
                     android:layout_width="match_parent"
-                    android:layout_height="46dp"
+                    android:layout_height="52dp"
                     android:elevation="10dp"
                     android:src="@drawable/kalash2" />
 
@@ -242,6 +243,53 @@
             app:layout_constraintStart_toStartOf="parent"
             >
 
+            <android.support.v7.widget.CardView
+                android:id="@+id/card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentPaddingTop="0dp"
+                app:cardCornerRadius="3dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="108dp"
+                        android:paddingLeft="0dp"
+                        android:paddingTop="0dp"
+                        android:paddingRight="0dp"
+                        android:scaleType="fitStart"
+
+
+                        android:text="Pp "/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="46dp"
+                        android:layout_below="@+id/textView3"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/bubble"
+                        android:backgroundTint="@color/yellow_300"
+                        android:text="POOJA"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/red_400"
+                        android:textSize="24sp" />
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/poojarecycler1"
                 android:layout_width="wrap_content"
@@ -250,7 +298,9 @@
                 android:padding="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent" >
+
+            </android.support.v7.widget.RecyclerView>
 
 
             <TextView
@@ -330,6 +380,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
         </LinearLayout>
     </ScrollView>
 

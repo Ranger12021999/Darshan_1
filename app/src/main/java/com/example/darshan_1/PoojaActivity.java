@@ -2,8 +2,10 @@ package com.example.darshan_1;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class PoojaActivity extends AppCompatActivity {
+    CardView places,pooja,pack,cab,hotel;
     private ArrayList<poojamodel> row2;
     private ArrayList<poojamodel> row1;
     private ArrayList<poojamodel> row3;
@@ -79,10 +82,47 @@ public class PoojaActivity extends AppCompatActivity {
         poojarecyclerView3 = (RecyclerView) findViewById(R.id.poojarecycler3);
         poojarecyclerView1 = (RecyclerView) findViewById(R.id.poojarecycler1);
         poojarecyclerView2 = (RecyclerView) findViewById(R.id.poojarecycler2);
+        places=findViewById(R.id.card_view1);
+
+        pack=findViewById(R.id.card_view3);
+        cab=findViewById(R.id.card_view4);
+        hotel=findViewById(R.id.card_view);
+
         row1 = eatFruits(0);
         row2 = eatFruits(1);
         row3=eatFruits(2);
         row4=eatFruits(3);
+        places.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(PoojaActivity.this, "Places clicked", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        pack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(PoojaActivity.this, "Packages clicked", Toast.LENGTH_SHORT).show();
+            }
+
+        });
+        hotel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(PoojaActivity.this, " Hotel clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(PoojaActivity.this,HotelActivity.class);
+                startActivity(intent);
+            }
+        });
+        cab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PoojaActivity.this,CabActivity.class);
+                Toast.makeText(PoojaActivity.this, " Cab clicked", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+            }
+        });
         poojaAdapter.RecyclerViewClickListener listener2 = new poojaAdapter.RecyclerViewClickListener() {
             @Override
             public void onClick(View view, int position) {//Row2

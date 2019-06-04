@@ -225,7 +225,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -239,7 +239,8 @@
             android:id="@+id/hotel_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1"
             android:layout_margin="8dp"
             android:background="@drawable/bubble"
             android:backgroundTint="@color/blue_grey_100"
@@ -254,7 +255,8 @@
             android:id="@+id/checkIndate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1"
             android:layout_margin="8dp"
             android:background="@drawable/bubble"
             android:backgroundTint="@color/blue_grey_100"
@@ -267,8 +269,9 @@
             android:id="@+id/checkOutdate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_weight="1"
             android:layout_margin="8dp"
+            android:gravity="center"
             android:background="@drawable/bubble"
             android:backgroundTint="@color/blue_grey_100"
             android:backgroundTintMode="add"
@@ -280,6 +283,8 @@
             android:id="@+id/noRooms"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
@@ -307,6 +312,8 @@
             android:id="@+id/noPersons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
@@ -334,7 +341,8 @@
             android:id="@+id/reason"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1"
             android:layout_margin="8dp"
             android:completionHint="1"
             android:completionThreshold="1"
@@ -345,11 +353,19 @@
             android:focusedByDefault="false"
             android:padding="8dp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:layout_margin="10dp"/>
+
         <Button
             android:id="@+id/submitHotel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:gravity="center"
             android:layout_marginBottom="8dp"
             android:background="@drawable/bubble"
             android:backgroundTint="@color/red_500"

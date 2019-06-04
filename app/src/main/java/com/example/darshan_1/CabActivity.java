@@ -1,6 +1,7 @@
 package com.example.darshan_1;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
@@ -215,14 +216,6 @@ public class CabActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
-
-
     }
 
     public void submitcab(View view) {
@@ -235,9 +228,9 @@ public class CabActivity extends AppCompatActivity {
 
     }
 
-//    void submitcab(View view)
-//    {
-//        Toast.makeText(this, "you entered "+s1, Toast.LENGTH_SHORT).show();
-//
-//    }
+    public void goToHotel(View view){
+        Intent intent = new Intent(CabActivity.this,HotelActivity.class);
+        startActivity(intent);
+    }
+
 }

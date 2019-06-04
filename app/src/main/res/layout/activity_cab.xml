@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey_300"
+    android:background="@color/grey_200"
     tools:context=".CabActivity">
 
 
@@ -288,20 +288,23 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="8dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/bubble"
+            android:layout_weight="1"
             android:backgroundTint="@color/blue_grey_100"
             android:backgroundTintMode="add"
             android:completionHint="1"
             android:completionThreshold="1"
             android:focusedByDefault="false"
             android:hint="Where are you?"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:gravity="center"/>
 
         <AutoCompleteTextView
             android:id="@+id/dest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:layout_weight="1"
             android:layout_gravity="center"
             android:layout_margin="8dp"
             android:background="@drawable/bubble"
@@ -311,7 +314,8 @@
             android:completionThreshold="1"
             android:focusableInTouchMode="true"
             android:hint="Where you wanna go?"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:gravity="center"/>
 
         <EditText
             android:id="@+id/date"
@@ -319,12 +323,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="8dp"
+            android:layout_weight="1"
             android:background="@drawable/bubble"
             android:backgroundTint="@color/blue_grey_100"
             android:backgroundTintMode="add"
             android:hint="Departure Date"
             android:inputType="date"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:gravity="center"/>
 
         <AutoCompleteTextView
             android:id="@+id/time"
@@ -332,13 +338,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="8dp"
+            android:layout_weight="1"
             android:background="@drawable/bubble"
             android:backgroundTint="@color/blue_grey_100"
             android:backgroundTintMode="add"
             android:hint="Departure Time"
             android:inputType="time"
             android:padding="8dp"
-            android:visibility="visible" />
+            android:visibility="visible"
+            android:gravity="center"/>
 
         <EditText
             android:id="@+id/date2"
@@ -347,18 +355,21 @@
             android:layout_gravity="center"
             android:layout_margin="8dp"
             android:background="@drawable/bubble"
+            android:layout_weight="1"
             android:backgroundTint="@color/blue_grey_100"
             android:backgroundTintMode="add"
             android:visibility="invisible"
             android:hint="Return Date"
             android:inputType="date"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:gravity="center"/>
 
         <AutoCompleteTextView
             android:id="@+id/time2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:layout_margin="8dp"
             android:background="@drawable/bubble"
             android:backgroundTint="@color/blue_grey_100"
@@ -366,13 +377,21 @@
             android:visibility="invisible"
             android:hint="Return Time"
             android:inputType="time"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bubble"
+            android:layout_weight="1"
             android:backgroundTint="@color/red_500"
             android:backgroundTintMode="add"
             android:text="Submit"
@@ -381,7 +400,9 @@
             android:padding="8dp"
             android:layout_margin="8dp"
             android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="16dp"/>
 
 
     </LinearLayout>

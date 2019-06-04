@@ -38,6 +38,7 @@
         android:background="@drawable/bubble"
         android:gravity="center_vertical"
         android:hint="   Email"
+        android:padding="8dp"
         android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -47,23 +48,24 @@
     <EditText
         android:id="@+id/edit_password"
         android:layout_width="300dp"
-        android:elevation="40dp"
         android:layout_height="56dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="204dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@drawable/bubble"
+        android:elevation="40dp"
         android:gravity="center_vertical"
         android:hint="   Password"
         android:inputType="textWebPassword"
+        android:padding="8dp"
         android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_email" />
 
     <TextView
         android:id="@+id/textview_forgot"
@@ -85,10 +87,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="108dp"
         android:layout_marginLeft="108dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="46dp"
         android:elevation="40dp"
-        android:layout_marginBottom="178dp"
-        app:layout_constraintBottom_toTopOf="@+id/proceed"
+        app:layout_constraintEnd_toStartOf="@+id/remember"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_password" />
 
@@ -96,34 +97,63 @@
         android:id="@+id/remember"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="66dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="131dp"
         android:layout_marginRight="131dp"
-        android:layout_marginBottom="185dp"
         android:text="Remember Me"
         android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/proceed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/checkbox_remember"
-        app:layout_constraintTop_toBottomOf="@+id/textview_forgot" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_password" />
 
     <Button
         android:id="@+id/proceed"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="179dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="@drawable/btn_getstarted_background"
         android:clickable="true"
-        android:focusable="true"
-        android:text="Login"
-        android:shadowColor="@color/active_dark"
         android:elevation="40dp"
+        android:focusable="true"
+        android:shadowColor="@color/active_dark"
+        android:text="Login"
         android:textColor="@color/txtPrimary"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.594"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkbox_remember" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_password" />
+
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+       android:layout_margin="10dp"
+        android:background="@drawable/btn_getstarted_background"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text="SignUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/proceed" />
+
+    <Button
+        android:id="@+id/newmember"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_getstarted_background"
+        android:gravity="center"
+        android:text="Became A New Member"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signup" />
 
 
 </android.support.constraint.ConstraintLayout>

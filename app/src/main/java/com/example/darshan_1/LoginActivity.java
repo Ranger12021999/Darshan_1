@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button btn_login;
+    Button btn_login,btn_signup,btn_newmember;
     EditText et_email,et_password;
     TextView tv_skip,tv_forgot,tv_remember;
     CheckBox checkBox;
@@ -25,6 +25,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         btn_login=findViewById(R.id.proceed);
+        btn_signup=findViewById(R.id.signup);
+        btn_newmember=findViewById(R.id.newmember);
         tv_skip=findViewById(R.id.skip);
         tv_forgot=findViewById(R.id.textview_forgot);
         tv_remember=findViewById(R.id.remember);
@@ -53,7 +55,20 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        btn_signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(LoginActivity.this,SignInActivity.class);
+                startActivity(intent);
+            }
+        });
 
+        btn_newmember.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(LoginActivity.this, "Abhi Nahi Bana Ye Kuch Aur Try kar", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 }

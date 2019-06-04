@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grey_300"
-    tools:context=".CabActivity">
+    tools:context=".HotelActivity">
 
 
     <LinearLayout
@@ -146,13 +146,13 @@
             android:layout_weight="1"
             android:layout_marginBottom="1dp"
             android:layout_marginRight="1dp"
-            android:backgroundTint="@color/yellow_200"
             android:layout_marginLeft="1dp"
             android:layout_marginTop="1dp"
             card_view:background="@color/blue_50"
             card_view:cardCornerRadius="8dp"
             card_view:cardPreventCornerOverlap = "false"
-            card_view:cardElevation="6dp">
+            card_view:cardElevation="6dp"
+            android:onClick="goToCab">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -184,6 +184,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:backgroundTint="@color/yellow_200"
             android:layout_weight="1"
             android:layout_marginBottom="1dp"
             android:layout_marginRight="1dp"
@@ -192,8 +193,7 @@
             card_view:background="@color/blue_50"
             card_view:cardCornerRadius="8dp"
             card_view:cardPreventCornerOverlap = "false"
-            card_view:cardElevation="6dp"
-            android:onClick="goToHotel">
+            card_view:cardElevation="6dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -221,69 +221,22 @@
 
     </LinearLayout>
 
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/linaer"
-        app:layout_constraintVertical_bias="0.061" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:text="One Trip"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/switch1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linaer" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Round Trip"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/switch1"
-        app:layout_constraintTop_toBottomOf="@+id/linaer" />
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch1">
+        app:layout_constraintTop_toBottomOf="@+id/linaer">
 
 
         <AutoCompleteTextView
-            android:id="@+id/search2"
+            android:id="@+id/hotel_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -294,92 +247,116 @@
             android:completionHint="1"
             android:completionThreshold="1"
             android:focusedByDefault="false"
-            android:hint="Where are you?"
+            android:hint="City/Area/Hotel"
             android:padding="8dp" />
 
-        <AutoCompleteTextView
-            android:id="@+id/dest"
+        <EditText
+            android:id="@+id/checkIndate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_gravity="center"
             android:layout_margin="8dp"
             android:background="@drawable/bubble"
             android:backgroundTint="@color/blue_grey_100"
             android:backgroundTintMode="add"
+            android:hint="Check In Date"
+            android:inputType="date"
+            android:padding="8dp" />
+
+        <EditText
+            android:id="@+id/checkOutdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:background="@drawable/bubble"
+            android:backgroundTint="@color/blue_grey_100"
+            android:backgroundTintMode="add"
+            android:hint="Check Out Date"
+            android:inputType="date"
+            android:padding="8dp" />
+
+        <LinearLayout
+            android:id="@+id/noRooms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:layout_margin="8dp"
+                android:text="No. of Rooms"
+                android:textSize="16sp"
+                android:gravity="center"/>
+
+            <Spinner
+                android:id="@+id/spinnerRooms"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:autofillHints="No. of persons"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/noPersons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:layout_margin="8dp"
+                android:text="No. of Persons"
+                android:textSize="16sp"
+                android:gravity="center"/>
+
+            <Spinner
+                android:id="@+id/spinnerPersons"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:autofillHints="No. of persons"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+
+        <AutoCompleteTextView
+            android:id="@+id/reason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
             android:completionHint="1"
             android:completionThreshold="1"
-            android:focusableInTouchMode="true"
-            android:hint="Where you wanna go?"
-            android:padding="8dp" />
-
-        <EditText
-            android:id="@+id/date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
             android:background="@drawable/bubble"
             android:backgroundTint="@color/blue_grey_100"
             android:backgroundTintMode="add"
-            android:hint="Departure Date"
-            android:inputType="date"
-            android:padding="8dp" />
-
-        <AutoCompleteTextView
-            android:id="@+id/time"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:background="@drawable/bubble"
-            android:backgroundTint="@color/blue_grey_100"
-            android:backgroundTintMode="add"
-            android:hint="Departure Time"
-            android:inputType="time"
-            android:padding="8dp"
-            android:visibility="visible" />
-
-        <EditText
-            android:id="@+id/date2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:background="@drawable/bubble"
-            android:backgroundTint="@color/blue_grey_100"
-            android:backgroundTintMode="add"
-            android:visibility="invisible"
-            android:hint="Return Date"
-            android:inputType="date"
-            android:padding="8dp" />
-
-        <AutoCompleteTextView
-            android:id="@+id/time2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:background="@drawable/bubble"
-            android:backgroundTint="@color/blue_grey_100"
-            android:backgroundTintMode="add"
-            android:visibility="invisible"
-            android:hint="Return Time"
-            android:inputType="time"
+            android:hint="Reason for booking (Optional)"
+            android:focusedByDefault="false"
             android:padding="8dp" />
 
         <Button
-            android:id="@+id/submit"
+            android:id="@+id/submitHotel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/bubble"
             android:backgroundTint="@color/red_500"
             android:backgroundTintMode="add"
-            android:text="Submit"
-            android:onClick="submitcab"
-            android:layout_marginBottom="8dp"
+            android:onClick="submitHotel"
             android:padding="8dp"
-            android:layout_margin="8dp"
+            android:text="Submit"
             android:textColor="@color/white"
             android:textStyle="bold" />
 

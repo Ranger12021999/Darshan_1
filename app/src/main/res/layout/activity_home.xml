@@ -47,7 +47,7 @@
                 android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
                 card_view:background="@color/blue_50"
-                card_view:cardCornerRadius="19dp"
+                card_view:cardCornerRadius="8dp"
                 card_view:cardPreventCornerOverlap = "false"
                 card_view:cardElevation="6dp">
 
@@ -86,7 +86,7 @@
                 android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
                 card_view:background="@color/blue_50"
-                card_view:cardCornerRadius="19dp"
+                card_view:cardCornerRadius="8dp"
                 card_view:cardPreventCornerOverlap = "false"
                 card_view:cardElevation="6dp">
 
@@ -125,7 +125,7 @@
                 android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
                 card_view:background="@color/blue_50"
-                card_view:cardCornerRadius="19dp"
+                card_view:cardCornerRadius="8dp"
                 card_view:cardPreventCornerOverlap = "false"
                 card_view:cardElevation="6dp">
 
@@ -163,7 +163,7 @@
                 android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
                 card_view:background="@color/blue_50"
-                card_view:cardCornerRadius="19dp"
+                card_view:cardCornerRadius="8dp"
                 card_view:cardPreventCornerOverlap = "false"
                 card_view:cardElevation="6dp">
 
@@ -202,7 +202,7 @@
                 android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
                 card_view:background="@color/blue_50"
-                card_view:cardCornerRadius="19dp"
+                card_view:cardCornerRadius="8dp"
                 card_view:cardPreventCornerOverlap = "false"
                 card_view:cardElevation="6dp">
 

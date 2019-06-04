@@ -47,7 +47,7 @@
                 android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
                 card_view:background="@color/blue_50"
-                card_view:cardCornerRadius="19dp"
+                card_view:cardCornerRadius="8dp"
                 card_view:cardPreventCornerOverlap = "false"
                 card_view:cardElevation="6dp">
 
@@ -86,7 +86,7 @@
                 android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
                 card_view:background="@color/blue_50"
-                card_view:cardCornerRadius="19dp"
+                card_view:cardCornerRadius="8dp"
                 card_view:cardPreventCornerOverlap = "false"
                 card_view:cardElevation="6dp">
 
@@ -125,7 +125,7 @@
                 android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
                 card_view:background="@color/blue_50"
-                card_view:cardCornerRadius="19dp"
+                card_view:cardCornerRadius="8dp"
                 card_view:cardPreventCornerOverlap = "false"
                 card_view:cardElevation="6dp">
 
@@ -163,7 +163,7 @@
                 android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
                 card_view:background="@color/blue_50"
-                card_view:cardCornerRadius="19dp"
+                card_view:cardCornerRadius="8dp"
                 card_view:cardPreventCornerOverlap = "false"
                 card_view:cardElevation="6dp">
 
@@ -202,7 +202,7 @@
                 android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
                 card_view:background="@color/blue_50"
-                card_view:cardCornerRadius="19dp"
+                card_view:cardCornerRadius="8dp"
                 card_view:cardPreventCornerOverlap = "false"
                 card_view:cardElevation="6dp">
 
@@ -357,16 +357,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <!--<android.support.v4.view.ViewPager-->
-                <!--android:id="@+id/viewPage2"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="154dp"-->
-                <!--android:layout_marginLeft="6dp"-->
-                <!--android:layout_marginRight="6dp"-->
-                <!--android:elevation="50dp"-->
-                <!--android:paddingTop="2dp" />-->
-
 
             <TextView
                 android:layout_width="wrap_content"

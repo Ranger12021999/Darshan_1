@@ -174,7 +174,7 @@ public class HomeActivity extends AppCompatActivity  {
         places.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HomeActivity.this, "clicked places", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeActivity.this, "Places clicked", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -189,20 +189,22 @@ public class HomeActivity extends AppCompatActivity  {
         pack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HomeActivity.this, "packages clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeActivity.this, "Packages clicked", Toast.LENGTH_SHORT).show();
             }
 
         });
         hotel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HomeActivity.this, "hotel clicked ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeActivity.this, " Hotel clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomeActivity.this,HotelActivity.class);
+                startActivity(intent);
             }
         });
         cab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HomeActivity.this, " cab clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeActivity.this, " Cab clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(HomeActivity.this,CabActivity.class);
                 startActivity(intent);
             }

@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.text.InputType;
 import android.view.View;
 import android.view.WindowManager;
@@ -31,6 +32,7 @@ public class CabActivity extends AppCompatActivity {
     DatePickerDialog picker;
     EditText eText,eText2;
     Switch aSwitch;
+    private CardView places,pooja,packages,hotel;
 
     private String[] myImageNameList = new String[]{"Shree Ram Mandir","Vrindavan","Mata Mansa Devi","Kashi Vishwanath","Kashi Vishwanath1","Kashi Vishwanath2"};
 
@@ -49,6 +51,36 @@ public class CabActivity extends AppCompatActivity {
         date=findViewById(R.id.date);
         aSwitch=findViewById(R.id.switch1);
 
+        places = findViewById(R.id.card_view1Cab);
+        pooja = findViewById(R.id.card_view2Cab);
+        packages = findViewById(R.id.card_view3Cab);
+        hotel = findViewById(R.id.card_view5Cab);
+
+        places.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(CabActivity.this,"Places",Toast.LENGTH_SHORT).show();
+            }
+        });
+        pooja.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CabActivity.this,PoojaActivity.class);
+                startActivity(intent);
+            }
+        });
+        packages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(CabActivity.this,"Packages",Toast.LENGTH_SHORT).show();
+            }
+        });
+        hotel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CabActivity.this,HotelActivity.class);
+                startActivity(intent);            }
+        });
 
         final ArrayAdapter<String> adpatertime= new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,myTimeList);
         final ArrayAdapter<String> adpater= new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,myImageNameList);
@@ -228,9 +260,5 @@ public class CabActivity extends AppCompatActivity {
 
     }
 
-    public void goToHotel(View view){
-        Intent intent = new Intent(CabActivity.this,HotelActivity.class);
-        startActivity(intent);
-    }
 
 }

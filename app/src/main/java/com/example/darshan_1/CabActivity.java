@@ -82,13 +82,11 @@ public class CabActivity extends AppCompatActivity {
                 startActivity(intent);            }
         });
 
-        final ArrayAdapter<String> adpatertime= new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,myTimeList);
-        final ArrayAdapter<String> adpater= new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,myImageNameList);
+        final ArrayAdapter<String> adpatertime = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,myTimeList);
+        final ArrayAdapter<String> adpater = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,myImageNameList);
         autoCompleteTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 autoCompleteTextView.showDropDown();
 
             }

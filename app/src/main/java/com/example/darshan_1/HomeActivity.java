@@ -24,10 +24,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity  {
-//    SearchView searchView;
-//    ListView listView;
-//    ArrayList<String> list;
-//    ArrayAdapter<String > adapter1;
+
     private TextView mTextMessage;
     CardView places,pooja,pack,cab,hotel;
 
@@ -82,20 +79,21 @@ public class HomeActivity extends AppCompatActivity  {
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navView.getMenu().getItem(0).setChecked(true);
 
-        places=findViewById(R.id.card_view1);
-        pooja=findViewById(R.id.card_view2);
-        pack=findViewById(R.id.card_view3);
-        cab=findViewById(R.id.card_view4);
-        hotel=findViewById(R.id.card_view);
+        places = findViewById(R.id.card_view1);
+        pooja = findViewById(R.id.card_view2);
+        pack = findViewById(R.id.card_view3);
+        cab = findViewById(R.id.card_view4);
+        hotel = findViewById(R.id.card_view);
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler);
-        recyclerView3 = (RecyclerView) findViewById(R.id.recycler3);
-        recyclerView4 = (RecyclerView) findViewById(R.id.recycler4);
-        recyclerView1 = (RecyclerView) findViewById(R.id.recycler1);
-        recyclerView2 = (RecyclerView) findViewById(R.id.recycler2);
+        recyclerView = findViewById(R.id.recycler);
+        recyclerView3 = findViewById(R.id.recycler3);
+        recyclerView4 = findViewById(R.id.recycler4);
+        recyclerView1 = findViewById(R.id.recycler1);
+        recyclerView2 = findViewById(R.id.recycler2);
         imageModelArrayList = eatFruits();
+
         FruitAdapter.RecyclerViewClickListener listener = new FruitAdapter.RecyclerViewClickListener() {
             @Override
             public void onClick(View view, int position) {
@@ -105,83 +103,19 @@ public class HomeActivity extends AppCompatActivity  {
         adapter = new FruitAdapter(this, imageModelArrayList,listener);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+        recyclerView1.setAdapter(adapter);
+        recyclerView1.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+        recyclerView2.setAdapter(adapter);
+        recyclerView2.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerView3.setAdapter(adapter);
         recyclerView3.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerView4.setAdapter(adapter);
         recyclerView4.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-        recyclerView2.setAdapter(adapter);
-        recyclerView2.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-        recyclerView1.setAdapter(adapter);
-        recyclerView1.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-
-        //        ViewPager mViewPager = (ViewPager) findViewById(R.id.viewPage1);
-//        slide_adapter adapterView = new slide_adapter(this);
-//        mViewPager.setAdapter(adapterView);
-//
-//        ViewPager mViewPager1 = (ViewPager) findViewById(R.id.viewPage2);
-//        mViewPager1.setAdapter(adapterView);
-
-//        ViewPager mViewPager2 = (ViewPager) findViewById(R.id.viewPage3);
-//        mViewPager2.setAdapter(adapterView);
-//
-//        ViewPager mViewPager3 = (ViewPager) findViewById(R.id.viewPage4);
-//        mViewPager3.setAdapter(adapterView);
-//        searchView = (SearchView) findViewById(R.id.searchView);
-//        listView = (ListView) findViewById(R.id.lv1);
-//
-//        list = new ArrayList<>();
-//        list.add("Apple");
-//        list.add("Banana");
-//        list.add("Aapple");
-//        list.add("Pineapple");
-//        list.add("Orange");
-//        list.add("Lychee");
-//        list.add("Gavava");
-//        list.add("Peech");
-//        list.add("Melon");
-//        list.add("Watermelon");
-//        list.add("Papaya");
-//
-//        adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,list);
-//        listView.setAdapter(adapter1);
-//
-//
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                searchView.clearFocus();
-//
-//                if(list.contains(query)){
-//                    adapter1.getFilter().filter(query);
-//                }else{
-//                    Toast.makeText(HomeActivity.this, "No Match found",Toast.LENGTH_LONG).show();
-//                }
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                //    adapter.getFilter().filter(newText);
-//
-//                listView.setVisibility(View.VISIBLE);
-//
-//                adapter1.getFilter().filter(newText);
-//
-//                if(newText.equals(""))
-//                {
-//                    listView.setVisibility(View.INVISIBLE);
-//                }
-//
-//
-//                return false;
-//            }
-//        });
 
         places.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(HomeActivity.this, "Places clicked", Toast.LENGTH_SHORT).show();
-
             }
         });
         pooja.setOnClickListener(new View.OnClickListener() {
@@ -249,7 +183,6 @@ public class HomeActivity extends AppCompatActivity  {
             fruitModel.setImage_drawable(myImageList[i]);
             list.add(fruitModel);
         }
-
         return list;
     }
 

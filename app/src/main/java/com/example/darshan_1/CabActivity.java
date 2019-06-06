@@ -82,13 +82,11 @@ public class CabActivity extends AppCompatActivity {
                 startActivity(intent);            }
         });
 
-        final ArrayAdapter<String> adpatertime= new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,myTimeList);
-        final ArrayAdapter<String> adpater= new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,myImageNameList);
+        final ArrayAdapter<String> adpatertime = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,myTimeList);
+        final ArrayAdapter<String> adpater = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,myImageNameList);
         autoCompleteTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 autoCompleteTextView.showDropDown();
 
             }
@@ -249,6 +247,15 @@ public class CabActivity extends AppCompatActivity {
         });
 
     }
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(CabActivity.this, HomeActivity.class);
+// set the new task and clear flags
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(i);
+        super.onBackPressed();
+    }
+
 
     public void submitcab(View view) {
 

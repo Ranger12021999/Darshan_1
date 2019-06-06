@@ -24,10 +24,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity  {
-//    SearchView searchView;
-//    ListView listView;
-//    ArrayList<String> list;
-//    ArrayAdapter<String > adapter1;
+
     private TextView mTextMessage;
     CardView places,pooja,pack,cab,hotel;
 
@@ -46,9 +43,9 @@ public class HomeActivity extends AppCompatActivity  {
 
     //item for REcycler view2
     private int[] myImageList2 = new int[]{ R.drawable.hotels,
-            R.drawable.cab_divya,
+            R.drawable.cabdivya1,
             R.drawable.hawan,
-            R.drawable.tour_guide
+            R.drawable.tourguide
     };
     private String[] myImageNameList2 = new String[]{"Hotels","Cabs","Pooja/Hawan","Tour Guide"};
     private String[] myImageNameList22 = new String[]{"Cheap and Best Hotels","Cabs at Best Price","We provide all types of Pooja/Hawan","Tour Guide with Full Information"};
@@ -105,6 +102,7 @@ public class HomeActivity extends AppCompatActivity  {
         navView.getMenu().getItem(0).setChecked(true);
 
 
+
         //Finding Id's
         mTextMessage = findViewById(R.id.message);
         places=findViewById(R.id.card_view1);
@@ -120,29 +118,34 @@ public class HomeActivity extends AppCompatActivity  {
 //        recyclerView3 = (RecyclerView) findViewById(R.id.recycler3);
         recyclerView4 = (RecyclerView) findViewById(R.id.recycler4);
 
+        //Listerner for Recycler vieew
+        FruitAdapter.RecyclerViewClickListener listener =new FruitAdapter.RecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Toast.makeText(HomeActivity.this, position+" Pressed", Toast.LENGTH_SHORT).show();
+            }
+        };
+
 
         //Adapter
         imageModelArrayList = eatFruits();
-        adapter = new FruitAdapter(this, imageModelArrayList);
+        adapter = new FruitAdapter(this, imageModelArrayList,listener);
 
         imageModelArrayList1 = eatFruits2();
-        adapter2 = new FruitAdapter(this, imageModelArrayList);
+        adapter2 = new FruitAdapter(this, imageModelArrayList1,listener);
 
         imageModelArrayList2 = eatFruits4();
-        adapter4 = new FruitAdapter(this, imageModelArrayList);
-
-        //set Adapter And Listing
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+        adapter4 = new FruitAdapter(this, imageModelArrayList2,listener);
 
 //        recyclerView1.setAdapter(adapter);
 //        recyclerView1.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
 
+
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+
         recyclerView2.setAdapter(adapter2);
         recyclerView2.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-
-//        recyclerView3.setAdapter(adapter);
-//        recyclerView3.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
 
         recyclerView4.setAdapter(adapter4);
         recyclerView4.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
@@ -153,7 +156,6 @@ public class HomeActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 Toast.makeText(HomeActivity.this, "Places clicked", Toast.LENGTH_SHORT).show();
-
             }
         });
 
@@ -252,7 +254,6 @@ public class HomeActivity extends AppCompatActivity  {
             fruitModel.setImage_drawable(myImageList4[i]);
             list.add(fruitModel);
         }
-
         return list;
     }
 

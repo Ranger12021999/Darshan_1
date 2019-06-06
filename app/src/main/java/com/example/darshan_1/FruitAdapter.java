@@ -14,17 +14,18 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.MyViewHolder
 
     private LayoutInflater inflater;
     private ArrayList<FruitModel> imageModelArrayList;
-    public FruitAdapter(Context ctx, ArrayList<FruitModel> imageModelArrayList){
-
+    private FruitAdapter.RecyclerViewClickListener mlisten;
+    public FruitAdapter(Context ctx, ArrayList<FruitModel> imageModelArrayList,RecyclerViewClickListener mlistener){
         inflater = LayoutInflater.from(ctx);
         this.imageModelArrayList = imageModelArrayList;
+        mlisten = mlistener;
     }
 
     @Override
     public FruitAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = inflater.inflate(R.layout.recycler_item, parent, false);
-        MyViewHolder holder = new MyViewHolder(view);
+        MyViewHolder holder = new MyViewHolder(view,mlisten);
 
         return holder;
     }
@@ -42,18 +43,29 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.MyViewHolder
         return imageModelArrayList.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
+    public interface RecyclerViewClickListener {
+        void onClick(View view, int position);
+    }
+
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView time,time2;
         ImageView iv;
+        private FruitAdapter.RecyclerViewClickListener listener;
 
-        public MyViewHolder(View itemView) {
+        public MyViewHolder(View itemView,RecyclerViewClickListener listener2) {
             super(itemView);
 
             time = (TextView) itemView.findViewById(R.id.tv);
             time2 = (TextView) itemView.findViewById(R.id.tv2);
             iv = (ImageView) itemView.findViewById(R.id.iv);
+            listener = listener2;
+            itemView.setOnClickListener(this);
         }
 
+        @Override
+        public void onClick(View view) {
+            listener.onClick(view,getAdapterPosition());
+        }
     }
 }

@@ -32,16 +32,35 @@ public class HomeActivity extends AppCompatActivity  {
     CardView places,pooja,pack,cab,hotel;
 
     private RecyclerView recyclerView,recyclerView4,recyclerView3,recyclerView2,recyclerView1;
-    private ArrayList<FruitModel> imageModelArrayList;
-    private FruitAdapter adapter;
+    private ArrayList<FruitModel> imageModelArrayList,imageModelArrayList1,imageModelArrayList2;
+    private FruitAdapter adapter,adapter2,adapter4;
 
-    private int[] myImageList = new int[]{ R.drawable.haridwar,
+    //item for REcycler view0
+    private int[] myImageList0 = new int[]{ R.drawable.haridwar,
             R.drawable.mathura,
             R.drawable.vrindawan,
             R.drawable.varansi1
             };
-    private String[] myImageNameList = new String[]{"Shree Ram Mandir","Vrindavan","Mata Mansa Devi","Kashi Vishwanath"};
-    private String[] myImageNameList2 = new String[]{"Ayodhya,Uttar Pradesh","Mathura,Uttar Pradesh","Hardiwar,Uttrakhand","Varansi,Uttar Pradesh"};
+    private String[] myImageNameList0 = new String[]{"Shree Ram Mandir","Vrindavan","Mata Mansa Devi","Kashi Vishwanath"};
+    private String[] myImageNameList20 = new String[]{"Ayodhya,Uttar Pradesh","Mathura,Uttar Pradesh","Hardiwar,Uttrakhand","Varansi,Uttar Pradesh"};
+
+    //item for REcycler view2
+    private int[] myImageList2 = new int[]{ R.drawable.hotels,
+            R.drawable.cab_divya,
+            R.drawable.hawan,
+            R.drawable.tour_guide
+    };
+    private String[] myImageNameList2 = new String[]{"Hotels","Cabs","Pooja/Hawan","Tour Guide"};
+    private String[] myImageNameList22 = new String[]{"Cheap and Best Hotels","Cabs at Best Price","We provide all types of Pooja/Hawan","Tour Guide with Full Information"};
+
+    //item for REcycler view4
+    private int[] myImageList4 = new int[]{ R.drawable.haridwar,
+            R.drawable.mathura,
+            R.drawable.vrindawan,
+            R.drawable.varansi1
+    };
+    private String[] myImageNameList4 = new String[]{"Shree Ram Mandir","Vrindavan","Mata Mansa Devi","Kashi Vishwanath"};
+    private String[] myImageNameList24 = new String[]{"Ayodhya,Uttar Pradesh","Mathura,Uttar Pradesh","Hardiwar,Uttrakhand","Varansi,Uttar Pradesh"};
 
     BottomNavigationView navView;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -77,100 +96,59 @@ public class HomeActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);//For Keyboard
+
+        //Navigation view
         navView = findViewById(R.id.nav_view);
-        mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navView.getMenu().getItem(0).setChecked(true);
 
+
+        //Finding Id's
+        mTextMessage = findViewById(R.id.message);
         places=findViewById(R.id.card_view1);
         pooja=findViewById(R.id.card_view2);
         pack=findViewById(R.id.card_view3);
         cab=findViewById(R.id.card_view4);
         hotel=findViewById(R.id.card_view);
 
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
+        //Finding Recycler Id's
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
-        recyclerView3 = (RecyclerView) findViewById(R.id.recycler3);
-        recyclerView4 = (RecyclerView) findViewById(R.id.recycler4);
-        recyclerView1 = (RecyclerView) findViewById(R.id.recycler1);
+//        recyclerView1 = (RecyclerView) findViewById(R.id.recycler1);
         recyclerView2 = (RecyclerView) findViewById(R.id.recycler2);
+//        recyclerView3 = (RecyclerView) findViewById(R.id.recycler3);
+        recyclerView4 = (RecyclerView) findViewById(R.id.recycler4);
+
+
+        //Adapter
         imageModelArrayList = eatFruits();
         adapter = new FruitAdapter(this, imageModelArrayList);
+
+        imageModelArrayList1 = eatFruits2();
+        adapter2 = new FruitAdapter(this, imageModelArrayList);
+
+        imageModelArrayList2 = eatFruits4();
+        adapter4 = new FruitAdapter(this, imageModelArrayList);
+
+        //set Adapter And Listing
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-        recyclerView3.setAdapter(adapter);
-        recyclerView3.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-        recyclerView4.setAdapter(adapter);
-        recyclerView4.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-        recyclerView2.setAdapter(adapter);
+
+//        recyclerView1.setAdapter(adapter);
+//        recyclerView1.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+
+        recyclerView2.setAdapter(adapter2);
         recyclerView2.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-        recyclerView1.setAdapter(adapter);
-        recyclerView1.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
 
-        //        ViewPager mViewPager = (ViewPager) findViewById(R.id.viewPage1);
-//        slide_adapter adapterView = new slide_adapter(this);
-//        mViewPager.setAdapter(adapterView);
-//
-//        ViewPager mViewPager1 = (ViewPager) findViewById(R.id.viewPage2);
-//        mViewPager1.setAdapter(adapterView);
+//        recyclerView3.setAdapter(adapter);
+//        recyclerView3.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
 
-//        ViewPager mViewPager2 = (ViewPager) findViewById(R.id.viewPage3);
-//        mViewPager2.setAdapter(adapterView);
-//
-//        ViewPager mViewPager3 = (ViewPager) findViewById(R.id.viewPage4);
-//        mViewPager3.setAdapter(adapterView);
-//        searchView = (SearchView) findViewById(R.id.searchView);
-//        listView = (ListView) findViewById(R.id.lv1);
-//
-//        list = new ArrayList<>();
-//        list.add("Apple");
-//        list.add("Banana");
-//        list.add("Aapple");
-//        list.add("Pineapple");
-//        list.add("Orange");
-//        list.add("Lychee");
-//        list.add("Gavava");
-//        list.add("Peech");
-//        list.add("Melon");
-//        list.add("Watermelon");
-//        list.add("Papaya");
-//
-//        adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,list);
-//        listView.setAdapter(adapter1);
-//
-//
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                searchView.clearFocus();
-//
-//                if(list.contains(query)){
-//                    adapter1.getFilter().filter(query);
-//                }else{
-//                    Toast.makeText(HomeActivity.this, "No Match found",Toast.LENGTH_LONG).show();
-//                }
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                //    adapter.getFilter().filter(newText);
-//
-//                listView.setVisibility(View.VISIBLE);
-//
-//                adapter1.getFilter().filter(newText);
-//
-//                if(newText.equals(""))
-//                {
-//                    listView.setVisibility(View.INVISIBLE);
-//                }
-//
-//
-//                return false;
-//            }
-//        });
+        recyclerView4.setAdapter(adapter4);
+        recyclerView4.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
 
+
+        //Click Listener
         places.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -178,6 +156,7 @@ public class HomeActivity extends AppCompatActivity  {
 
             }
         });
+
         pooja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -186,6 +165,7 @@ public class HomeActivity extends AppCompatActivity  {
                 startActivity(i1);
             }
         });
+
         pack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -193,6 +173,7 @@ public class HomeActivity extends AppCompatActivity  {
             }
 
         });
+
         hotel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -201,6 +182,7 @@ public class HomeActivity extends AppCompatActivity  {
                 startActivity(intent);
             }
         });
+
         cab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -210,7 +192,7 @@ public class HomeActivity extends AppCompatActivity  {
             }
         });
 
-
+        //AutoComplete ki khicdi
         final AutoCompleteTextView autoCompleteTextView = findViewById(R.id.search1);
         final ArrayAdapter<String> adpater2= new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,myImageNameList2);
         autoCompleteTextView.setOnClickListener(new View.OnClickListener() {
@@ -228,19 +210,46 @@ public class HomeActivity extends AppCompatActivity  {
             }
         });
 
-
-
     }
-
     private ArrayList<FruitModel> eatFruits(){
 
         ArrayList<FruitModel> list = new ArrayList<>();
 
         for(int i = 0; i < 4; i++){
             FruitModel fruitModel = new FruitModel();
-            fruitModel.setName(myImageNameList[i]);
-            fruitModel.setName1(myImageNameList2[i]);
-            fruitModel.setImage_drawable(myImageList[i]);
+            fruitModel.setName(myImageNameList0[i]);
+            fruitModel.setName1(myImageNameList20[i]);
+            fruitModel.setImage_drawable(myImageList0[i]);
+            list.add(fruitModel);
+        }
+
+        return list;
+    }
+
+    private ArrayList<FruitModel> eatFruits2(){
+
+        ArrayList<FruitModel> list = new ArrayList<>();
+
+        for(int i = 0; i < 4; i++){
+            FruitModel fruitModel = new FruitModel();
+            fruitModel.setName(myImageNameList2[i]);
+            fruitModel.setName1(myImageNameList22[i]);
+            fruitModel.setImage_drawable(myImageList2[i]);
+            list.add(fruitModel);
+        }
+
+        return list;
+    }
+
+    private ArrayList<FruitModel> eatFruits4(){
+
+        ArrayList<FruitModel> list = new ArrayList<>();
+
+        for(int i = 0; i < 4; i++){
+            FruitModel fruitModel = new FruitModel();
+            fruitModel.setName(myImageNameList24[i]);
+            fruitModel.setName1(myImageNameList4[i]);
+            fruitModel.setImage_drawable(myImageList4[i]);
             list.add(fruitModel);
         }
 

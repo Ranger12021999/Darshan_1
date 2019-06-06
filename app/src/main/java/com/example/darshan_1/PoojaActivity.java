@@ -600,6 +600,15 @@ public class PoojaActivity extends AppCompatActivity {
 
 
     }
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(PoojaActivity.this, HomeActivity.class);
+// set the new task and clear flags
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(i);
+        super.onBackPressed();
+    }
+
 
     private ArrayList<poojamodel> eatFruits(int a) {
 

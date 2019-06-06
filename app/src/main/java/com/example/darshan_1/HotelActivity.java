@@ -213,6 +213,15 @@ public class HotelActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(HotelActivity.this, HomeActivity.class);
+// set the new task and clear flags
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(i);
+        super.onBackPressed();
+    }
+
     public void submitHotel(View view){
         hotelString = search.getText().toString();
         checkInString = checkInDate.getText().toString();

@@ -126,16 +126,49 @@ public class HomeActivity extends AppCompatActivity  {
             }
         };
 
+        FruitAdapter.RecyclerViewClickListener listener1 =new FruitAdapter.RecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Toast.makeText(HomeActivity.this, position+" Pressed", Toast.LENGTH_SHORT).show();
+                if(position==0)
+                {
+                    Intent intent=new Intent(HomeActivity.this,HotelActivity.class);
+                    startActivity(intent);
+                }
+                if(position==1)
+                {
+                    Intent intent=new Intent(HomeActivity.this,CabActivity.class);
+                    startActivity(intent);
+                }
+                if(position==2)
+                {
+                    Intent intent=new Intent(HomeActivity.this,PoojaActivity.class);
+                    startActivity(intent);
+                }
+                if(position==3)
+                {
+                    Toast.makeText(HomeActivity.this, "Please Complete this module in site", Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
+
+        FruitAdapter.RecyclerViewClickListener listener2 =new FruitAdapter.RecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Toast.makeText(HomeActivity.this, position+" Pressed", Toast.LENGTH_SHORT).show();
+            }
+        };
+
 
         //Adapter
         imageModelArrayList = eatFruits();
         adapter = new FruitAdapter(this, imageModelArrayList,listener);
 
         imageModelArrayList1 = eatFruits2();
-        adapter2 = new FruitAdapter(this, imageModelArrayList1,listener);
+        adapter2 = new FruitAdapter(this, imageModelArrayList1,listener1);
 
         imageModelArrayList2 = eatFruits4();
-        adapter4 = new FruitAdapter(this, imageModelArrayList2,listener);
+        adapter4 = new FruitAdapter(this, imageModelArrayList2,listener2);
 
 //        recyclerView1.setAdapter(adapter);
 //        recyclerView1.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));

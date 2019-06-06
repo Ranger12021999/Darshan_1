@@ -96,7 +96,13 @@ public class HomeActivity extends AppCompatActivity  {
         recyclerView1 = (RecyclerView) findViewById(R.id.recycler1);
         recyclerView2 = (RecyclerView) findViewById(R.id.recycler2);
         imageModelArrayList = eatFruits();
-        adapter = new FruitAdapter(this, imageModelArrayList);
+        FruitAdapter.RecyclerViewClickListener listener = new FruitAdapter.RecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Toast.makeText(HomeActivity.this,position + "Pressed",Toast.LENGTH_SHORT).show();
+            }
+        };
+        adapter = new FruitAdapter(this, imageModelArrayList,listener);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerView3.setAdapter(adapter);

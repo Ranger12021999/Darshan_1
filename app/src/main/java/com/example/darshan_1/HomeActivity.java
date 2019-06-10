@@ -113,6 +113,8 @@ public class HomeActivity extends AppCompatActivity  {
 
         //Finding Recycler Id's
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setItemViewCacheSize(20);
 //        recyclerView1 = (RecyclerView) findViewById(R.id.recycler1);
         recyclerView2 = (RecyclerView) findViewById(R.id.recycler2);
 //        recyclerView3 = (RecyclerView) findViewById(R.id.recycler3);
